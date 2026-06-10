@@ -58,12 +58,12 @@ st.markdown("""
 # HEADER
 # ----------------------------
 st.markdown(
-    "<div class='title'>🛡️ OrderShield AI</div>",
+    "<div class='title'>🇵🇰 PakShield AI</div>",
     unsafe_allow_html=True
 )
 
 st.markdown(
-    "<div class='sub'>Enterprise E-Commerce Fraud Intelligence Platform</div>",
+    "<div class='sub'>Pakistan E-Commerce Risk Intelligence Platform</div>",
     unsafe_allow_html=True
 )
 
@@ -356,4 +356,6 @@ if st.button("🔍 Analyze Order Risk", use_container_width=True):
 # FOOTER
 # ----------------------------
 st.divider()
-st.caption("OrderShield AI • Enterprise Fraud Intelligence System")
+st.caption(
+    "PakShield AI • Pakistan E-Commerce Risk Intelligence System"
+)
