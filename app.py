@@ -195,24 +195,28 @@ delivery_days = st.sidebar.number_input(
     value=5
 )
 
+binary_options = {
+    "No 🟢": 0,
+    "Yes 🔴": 1
+}
+
 late_delivery_risk = st.sidebar.selectbox(
     "Late Delivery Risk",
-    [0, 1]
+    list(binary_options.keys())
 )
+late_delivery_risk = binary_options[late_delivery_risk]
 
 address_mismatch = st.sidebar.selectbox(
     "Address Mismatch",
-    [0, 1]
+    list(binary_options.keys())
 )
+address_mismatch = binary_options[address_mismatch]
 
 high_risk_ip = st.sidebar.selectbox(
     "High Risk IP",
-    [0, 1]
+    list(binary_options.keys())
 )
-
-st.write("High Risk IP:", show_flag(high_risk_ip))
-st.write("Address Mismatch:", show_flag(address_mismatch))
-st.write("Late Delivery Risk:", show_flag(late_delivery_risk))
+high_risk_ip = binary_options[high_risk_ip]
 
 # ----------------------------
 # FEATURE ENGINEERING
