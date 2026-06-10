@@ -5,10 +5,9 @@ import joblib
 import plotly.graph_objects as go
 import plotly.express as px
 
-binary_map = {
-    0: "No",
-    1: "Yes"
-}
+def show_flag(value):
+    return "🟢 No" if value == 0 else "🔴 Yes"
+
 # ----------------------------
 # PAGE CONFIG
 # ----------------------------
@@ -211,6 +210,10 @@ high_risk_ip = st.sidebar.selectbox(
     [0, 1]
 )
 
+st.write("High Risk IP:", show_flag(high_risk_ip))
+st.write("Address Mismatch:", show_flag(address_mismatch))
+st.write("Late Delivery Risk:", show_flag(late_delivery_risk))
+
 # ----------------------------
 # FEATURE ENGINEERING
 # ----------------------------
@@ -374,11 +377,14 @@ if st.button("🔍 Analyze Order Risk", use_container_width=True):
 
     reasons = []
 
-    if high_risk_ip == 1:
-        reasons.append("High-risk IP detected")
+    if high_risk_ip:
+        reasons.append("⚠ High-risk IP detected")
 
-    if address_mismatch == 1:
-        reasons.append("Address mismatch detected")
+    if address_mismatch:
+        reasons.append("⚠ Address mismatch detected")
+
+    if late_delivery_risk:
+        reasons.append("⚠ Delivery risk detected")
 
     if discount_rate > 0.40:
         reasons.append("Unusually high discount")
