@@ -5,6 +5,10 @@ import joblib
 import plotly.graph_objects as go
 import plotly.express as px
 
+binary_map = {
+    0: "No",
+    1: "Yes"
+}
 # ----------------------------
 # PAGE CONFIG
 # ----------------------------
